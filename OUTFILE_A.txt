@@ -1,0 +1,414 @@
+# Single term
+./search index-data entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    entropy
+>>--------------------------------------------
+
+[ Disjunct Query ]
+    Postings ( 3 ): [('entropy', 3)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 3
+    Total reads: 3
+      * Postings read: 3
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 3 matches )
+--------------------------------------------
+
+1. 1.00 CACM-2998.html
+  An Empirical Study of List Structure in Lisp
+2. 1.00 CACM-2220.html
+  Conversion of Limited-Entry Decision Tables to Computer Programs-A Proposed Modification to Pollack's Algorithm
+3. 1.00 CACM-1997.html
+  Increasing the Efficiency of Quicksort
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:51
+Total Duration: 0.1304 seconds
+    0.0358s  Python module load
+    0.0945s  Query execution
+    0.0000s  Reporting results
+
+>>---------
+
+./search -c index-data entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    entropy
+>>--------------------------------------------
+
+[ Conjunct Query ]
+    Postings ( 3 ): [('entropy', 3)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 3
+    Total reads: 3
+      * Postings read: 3
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 3 matches )
+--------------------------------------------
+
+1. 1.00 CACM-2998.html
+  An Empirical Study of List Structure in Lisp
+2. 1.00 CACM-2220.html
+  Conversion of Limited-Entry Decision Tables to Computer Programs-A Proposed Modification to Pollack's Algorithm
+3. 1.00 CACM-1997.html
+  Increasing the Efficiency of Quicksort
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0729 seconds
+    0.0092s  Python module load
+    0.0636s  Query execution
+    0.0000s  Reporting results
+
+>>---------
+
+./search -p index-data entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    entropy
+>>--------------------------------------------
+
+[ Phrase Query ]
+    Postings ( 3 ): [('entropy', 3)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 3
+    Total reads: 3
+      * Postings read: 3
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 3 matches )
+--------------------------------------------
+
+1. 1.00 CACM-2998.html
+  An Empirical Study of List Structure in Lisp
+2. 1.00 CACM-2220.html
+  Conversion of Limited-Entry Decision Tables to Computer Programs-A Proposed Modification to Pollack's Algorithm
+3. 1.00 CACM-1997.html
+  Increasing the Efficiency of Quicksort
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0711 seconds
+    0.0091s  Python module load
+    0.0619s  Query execution
+    0.0000s  Reporting results
+
+>>---------
+
+# Two terms in same docs, never a phrase
+./search index-data information entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information entropy
+>>--------------------------------------------
+
+[ Disjunct Query ]
+    Postings ( 289 ): [('entropy', 3), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 286
+    Total reads: 289
+      * Postings read: 289
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 286 matches )
+--------------------------------------------
+
+1. 2.00 CACM-2998.html
+  An Empirical Study of List Structure in Lisp
+2. 2.00 CACM-2220.html
+  Conversion of Limited-Entry Decision Tables to Computer Programs-A Proposed Modification to Pollack's Algorithm
+3. 2.00 CACM-1997.html
+  Increasing the Efficiency of Quicksort
+4. 1.00 CACM-3197.html
+  Structures of Standards-Processing Organizations in the Computer Area
+5. 1.00 CACM-3180.html
+  Costs of the Current U. Payments System
+6. 1.00 CACM-3177.html
+  How to Share a Secret
+7. 1.00 CACM-3169.html
+  Note on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+8. 1.00 CACM-3168.html
+  Comment on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+9. 1.00 CACM-3137.html
+  A Methodology for the Design of Distributed Information Systems
+10. 1.00 CACM-3135.html
+  Detection of Three-Dimensional Patterns of Atoms in Chemical Structures
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0836 seconds
+    0.0094s  Python module load
+    0.0741s  Query execution
+    0.0002s  Reporting results
+
+>>---------
+
+./search -c index-data information entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information entropy
+>>--------------------------------------------
+
+[ Conjunct Query ]
+    Postings ( 289 ): [('entropy', 3), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 3
+    Total reads: 266
+      * Postings read: 266
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 3 matches )
+--------------------------------------------
+
+1. 2.00 CACM-2998.html
+  An Empirical Study of List Structure in Lisp
+2. 2.00 CACM-2220.html
+  Conversion of Limited-Entry Decision Tables to Computer Programs-A Proposed Modification to Pollack's Algorithm
+3. 2.00 CACM-1997.html
+  Increasing the Efficiency of Quicksort
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0677 seconds
+    0.0079s  Python module load
+    0.0597s  Query execution
+    0.0000s  Reporting results
+
+>>---------
+
+./search -p index-data information entropy
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information entropy
+>>--------------------------------------------
+
+[ Phrase Query ]
+    Postings ( 289 ): [('entropy', 3), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 0
+    Total reads: 266
+      * Postings read: 266
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 0 matches )
+--------------------------------------------
+
+  ** No matching documents found.
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0679 seconds
+    0.0081s  Python module load
+    0.0598s  Query execution
+    0.0000s  Reporting results
+
+>>---------
+
+# Two terms in same docs, often as a phrase
+./search index-data information retrieval
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information retrieval
+>>--------------------------------------------
+
+[ Disjunct Query ]
+    Postings ( 417 ): [('retrieval', 131), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 319
+    Total reads: 417
+      * Postings read: 417
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 319 matches )
+--------------------------------------------
+
+1. 2.00 CACM-3169.html
+  Note on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+2. 2.00 CACM-3168.html
+  Comment on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+3. 2.00 CACM-3135.html
+  Detection of Three-Dimensional Patterns of Atoms in Chemical Structures
+4. 2.00 CACM-3134.html
+  The Use of Normal Multiplication Tables for Information Storage and Retrieval
+5. 2.00 CACM-3096.html
+  An Optimal Method for Deletion in One-Sided Height-Balanced Trees
+6. 2.00 CACM-3087.html
+  An English Language Question Answering System for a Large Relational Database
+7. 2.00 CACM-3041.html
+  Median Split Trees: A Fast Lookup Technique for Frequently Occuring Keys
+8. 2.00 CACM-3012.html
+  The Use of an Interactive Information Storage and Retrieval System in Medical Research
+9. 2.00 CACM-2991.html
+  Improving the Access Time for Random Access Files
+10. 2.00 CACM-2990.html
+  Effective Information Retrieval Using Term Accuracy
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0724 seconds
+    0.0080s  Python module load
+    0.0643s  Query execution
+    0.0001s  Reporting results
+
+>>---------
+
+./search -c index-data information retrieval
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information retrieval
+>>--------------------------------------------
+
+[ Conjunct Query ]
+    Postings ( 417 ): [('retrieval', 131), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 98
+    Total reads: 415
+      * Postings read: 415
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 98 matches )
+--------------------------------------------
+
+1. 2.00 CACM-3169.html
+  Note on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+2. 2.00 CACM-3168.html
+  Comment on "An Optimal Evaluation of Boolean Expressions in an Online Query System."
+3. 2.00 CACM-3135.html
+  Detection of Three-Dimensional Patterns of Atoms in Chemical Structures
+4. 2.00 CACM-3134.html
+  The Use of Normal Multiplication Tables for Information Storage and Retrieval
+5. 2.00 CACM-3096.html
+  An Optimal Method for Deletion in One-Sided Height-Balanced Trees
+6. 2.00 CACM-3087.html
+  An English Language Question Answering System for a Large Relational Database
+7. 2.00 CACM-3041.html
+  Median Split Trees: A Fast Lookup Technique for Frequently Occuring Keys
+8. 2.00 CACM-3012.html
+  The Use of an Interactive Information Storage and Retrieval System in Medical Research
+9. 2.00 CACM-2991.html
+  Improving the Access Time for Random Access Files
+10. 2.00 CACM-2990.html
+  Effective Information Retrieval Using Term Accuracy
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0794 seconds
+    0.0079s  Python module load
+    0.0683s  Query execution
+    0.0032s  Reporting results
+
+>>---------
+
+./search -p index-data information retrieval
+
+>>--------------------------------------------
+  Searching ./index-data
+  Query:
+    information retrieval
+>>--------------------------------------------
+
+[ Phrase Query ]
+    Postings ( 417 ): [('retrieval', 131), ('information', 286)]
+    Scoring: words
+    Skip size: 1 
+
+[ Results ]
+    Matching Documents: 27
+    Total reads: 415
+      * Postings read: 415
+      * Skip pointers read: 0
+
+--------------------------------------------
+ Top-10 documents ( 27 matches )
+--------------------------------------------
+
+1. 2.00 CACM-3134.html
+  The Use of Normal Multiplication Tables for Information Storage and Retrieval
+2. 2.00 CACM-2990.html
+  Effective Information Retrieval Using Term Accuracy
+3. 2.00 CACM-2947.html
+  SITAR: An Interactive Text Processing System for Small Computers
+4. 2.00 CACM-2846.html
+  Compressed Tries
+5. 2.00 CACM-2795.html
+  Sentence Paraphrasing from a Conceptual Base
+6. 2.00 CACM-2631.html
+  An Information-Theoretic Approach to Text Searching in Direct Access Systems
+7. 2.00 CACM-2519.html
+  On the Problem of Communicating Complex Information
+8. 2.00 CACM-2516.html
+  Hierarchical Storage in Information Retrieval
+9. 2.00 CACM-2484.html
+  A Note on Information Organization and Storage
+10. 2.00 CACM-2451.html
+  Design of Tree Structures for Efficient Querying
+
+
+[ Timer: Search ]
+Started: Sat, 18 Mar 2023 15:29:52
+Total Duration: 0.0720 seconds
+    0.0079s  Python module load
+    0.0640s  Query execution
+    0.0001s  Reporting results
+
+>>---------
+

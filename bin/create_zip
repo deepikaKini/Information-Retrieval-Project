@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+	echo "------------------------------------"
+	echo "CSCI 536/636: Information Retrieval"
+	echo "RIT, Fall 2022"
+	echo "------------------------------------"
+	echo ""
+	echo "create_zip: code submission preparation tool."
+	echo ""
+	echo "Usage:"
+	echo "    prepsubmit <dir>"
+	echo ""
+	echo "where <dir> is the directory containing your program(s)"
+	echo ""
+	echo "Output (current directory):"
+	echo "    ./code.zip"
+	echo "    ./listing.pdf"
+	echo ""
+	echo "When you are ready to submit your program,"
+	echo "upload program.zip and listing.pdf to MyCourses."
+	exit 0
+fi
+
+echo "[[ Code Formatting and .zip Script ]]"
+echo ""
+echo "Preparing submission from directory:"
+echo "    $1"
+echo ""
+echo ">> Running the black source code formatter..."
+black $1
+echo ""
+echo ">> Creating zip archive..."
+zip -r ./source-code.zip $1
+echo ""
+
+echo ">> Creating PDF files from .py source files.."
+./bin/code2pdf $1
+echo "done."

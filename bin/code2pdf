@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+	echo "------------------------------------"
+	echo "CSCI 536/636: Information Retrieval"
+	echo "RIT, Fall 2022"
+	echo "------------------------------------"
+	echo ""
+	echo "code2pdf utility: print source (.py) files to PDF"
+	echo ""
+	echo "Usage:"
+	echo "  Files in current directory              code2pdf *.py"
+	echo "  Named directory/path                    code2pdf <dir>"
+	echo "  List of files                           code2pdf file1.py file2.py ... "
+	echo "  List of files in multiple directories   code2pdf dir1/*.py dir2/*.py ..."
+	echo ""
+	echo "Output: ./code-listing.pdf     (in current directory)"
+	exit 0
+fi
+
+if [ -d $1 ]
+then
+	echo "Directory passed -- printing .py files in $1"
+	# Letter size page; 2 columns per page; line numbers every line
+	a2ps -M Letter -2 --line-number=1 $1/*.py -o - | ps2pdf - source-listing.pdf
+else
+	# Letter size page; 2 columns per page; line numbers every line
+	a2ps -M Letter -2 --line-number=1 $@ -o - | ps2pdf - source-listing.pdf
+fi
+
